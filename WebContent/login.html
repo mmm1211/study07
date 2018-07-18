@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户登录</title>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+function login(){
+	var account=$.trim($("#account").val());
+	var pwd=$.trim($("#pwd").val());
+	
+	$.post("/Text/login",{op:"login",account,pwd:pwd},function(data){
+		console.info(data);
+	},"text");
+}
+
+</script>
+</head>
+<body>
+<form method="post" action="login">
+	账号：<input type="text" id="account" />
+	密码：<input type="password" id="password" />
+	
+	<input type="button" value="登录" onclick="login()" />
+</form>
+</body>
+</html>
