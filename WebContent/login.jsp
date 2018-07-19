@@ -13,20 +13,27 @@
 	<div class="container">
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				<form role="form">
+				
 					<div class="form-group">
-						 <label for="exampleInputEmail1">账号</label><input type="text" class="form-control" id="exampleInputEmail1" />
+						 <label for="exampleInputEmail1">账号</label><input type="text" class="form-control" id="account" />
 					</div>
 					<div class="form-group">
-						 <label for="exampleInputPassword1">密码</label><input type="password" class="form-control" id="exampleInputPassword1" />
+						 <label for="exampleInputPassword1">密码</label><input type="password" class="form-control" id="pwd" />
 					</div>
-					<button type="submit" class="btn btn-default">Submit</button>
-				</form>
+					<button type="submit" class="btn btn-default" onclick="login()")>Submit</button>
+				
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
+	function login(){
+		var account=$.trim($("#account").val());
+		var pwd=$.trim($("#pwd").val());
 		
+		$.post("login",{op:"login",account,pwd:pwd},function(data){
+			console.info(data);
+		},"text");
+	}
 	</script>
 </body>
 </html>

@@ -3,25 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <title>用户登录</title>
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript">
-function login(){
-	var account=$.trim($("#account").val());
-	var pwd=$.trim($("#pwd").val());
-	
-	$.post("/Text/login",{op:"login",account,pwd:pwd},function(data){
-		console.info(data);
-	},"text");
-}
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script><script type="text/javascript"></script>
 
-</script>
 </head>
 <body>
 <form method="post" action="login">
-	账号：<input type="text" id="account" />
-	密码：<input type="password" id="password" />
+	<label>账号：</label><input type="text" id="account" />
+	<label>密码：</label><input type="password" id="password" />
 	
 	<input type="button" value="登录" onclick="login()" />
 </form>
+
+<script type="text/javascript">
+	function login(){
+	var account=$.trim($("#account").val());
+	var pwd=$.trim($("#pwd").val());
+	
+	$.post("login",{op:"login",account,pwd:pwd},function(data){
+		console.info(data);
+	},"text");
+}
+</script>
+
 </body>
 </html>
